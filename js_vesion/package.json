@@ -1,0 +1,32 @@
+{
+  "name": "js-version",
+  "version": "0.0.1",
+  "description": "Javascript version of TA",
+  "author": "Fabrizio Gargiulo",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "cucumber": "^1.3.1",
+    "lodash": "^4.17.2",
+    "mkdirp": "^0.5.1",
+    "sanitize-filename": "^1.6.1",
+    "selenium-webdriver": "^3.0.1"
+  },
+  "scripts": {
+    "clean": "rm -rf tmp",
+    "install-geckodriver": "./provisioning/install_geckodriver.sh",
+    "setup": "rm -rf node_modules && npm install",
+    "test_olr": "PATH=$PATH:build/install_libraries/bin cucumber-js --format pretty --compiler=js:babel-register --require=features/support --require=features/step_definitions",
+    "test": "node_modules/.bin/cucumber-js --fail-fast -S -f pretty --compiler=js:babel-register -r features/support -r features/step_definitions",
+    "commit": "npm run clean && npm run test"
+  },
+  "dependencies": {
+    "chromedriver": "^2.45.0"
+  }
+}
