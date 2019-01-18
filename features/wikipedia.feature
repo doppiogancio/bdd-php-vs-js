@@ -1,0 +1,9 @@
+Feature: search wikipedia
+  In order to...
+  As...
+  I need...
+
+  Scenario: Search for BDD
+    Given I am in wikipedia
+    When I search for "Behaviour driven development"
+    Then the first heading should be "Behaviour-driven development"
